@@ -2,24 +2,22 @@ public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree(10);
 
-        Node n20 = new Node(20);
-        Node n30 = new Node(30);
-        Node n40 = new Node(40);
-        Node n50 = new Node(50);
+        tree.insert(20);
+        tree.insert(30);
+        tree.insert(12);
+        tree.insert(40);
+        tree.insert(37);
 
-        tree.getRoot().setLeft(n20);
-        tree.getRoot().setRight(n30);
+        tree.Delete(tree.root, 37);
 
-        n20.setLeft(n40);
-        n20.setRight(n50);
 
         System.out.println("Preorder");
-        tree.Preorder(tree.getRoot());
+        tree.Preorder(tree.root);
         System.out.println("\nInorder");
-        tree.Inorder(tree.getRoot());
+        tree.Inorder(tree.root);
         System.out.println("\nPostorder");
-        tree.Postorder(tree.getRoot());
+        tree.Postorder(tree.root);
         System.out.println("\nLevels");
-        tree.Levels(tree.getRoot());
+        tree.Levels(tree.root);
     }
 }
