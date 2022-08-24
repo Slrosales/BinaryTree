@@ -118,6 +118,70 @@ public class Tree{
             }
         }
     }
+    
+    public void levelNode(Node root, int nivel){
+        if (root != null){
+            if (nivel == 0){
+                System.out.println(root.getData());
+            }else{
+                levelNode(root.getLeft(), nivel -1);
+                levelNode(root.getRight(), nivel -1);
+            }
+        }
+        
+    }
+    
+    public int Sum(Node root){
+        if(root != null){
+            int izq = Sum(root.getLeft());
+            int der = Sum(root.getRight());
+            return root.getData() + izq + der;
+        }  
+        return 0;
+    }
+    
+    public int height(Node root){
+        if (root != null) {
+            return 1 + Math.max(height(root.getLeft()), height(root.getRight()));
+        }
+        return 0;
+    }
+    
+    public boolean Balance(Node root){
+        if (root != null){
+            int izq = height(root.getLeft());
+            int der = height(root.getRight());
+            
+            if (-1 > (der - izq) || (der - izq) > 1){
+                
+                return false;
+            } else{
+                return true;
+            }
+        }
+        return true;
+    }
+    
+    public boolean ABB(Node root){
+        if (root != null){
+            
+            if (root.getLeft()!= null && root.getData() < root.getLeft().getData()){
+                return false;
+            }
+            
+            if (root.getRight()!= null && root.getData() > root.getRight().getData()){
+                System.out.println(root.getRight().getData());
+
+                return false;
+            }
+            
+            ABB(root.getLeft());
+            ABB(root.getRight());
+            
+        }
+        
+        return true;
+    }
 
 }
 
